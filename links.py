@@ -4,8 +4,10 @@ from flask import Flask
 from flask import Response
 from flask import redirect, abort, request, url_for, jsonify
 
+from config import *
+
 def connect_db() :
-    conn = sqlite3.connect('/Users/galuska/Desktop/Python/linkshortener_db.db')
+    conn = sqlite3.connect(db_location)
     return conn
 
 http = Flask(__name__)
