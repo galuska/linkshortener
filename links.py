@@ -5,7 +5,7 @@ from flask import Response
 from flask import redirect, abort, request, url_for, jsonify
 
 def connect_db() :
-    conn = sqlite3.connect('links.sqlite')
+    conn = sqlite3.connect('/Users/galuska/Desktop/Python/linkshortener_db.db')
     return conn
 
 http = Flask(__name__)
