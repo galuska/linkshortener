@@ -38,7 +38,7 @@ def lookup(id) :
 @http.route('/shorten')
 def shorten() :
     try :
-        url = request.args["url"]
+        url = request.args['url']
         conn = connect_db()
         cur = conn.cursor()
         cur.execute('''SELECT id FROM links WHERE url = ?''', (url, ))
@@ -53,7 +53,7 @@ def shorten() :
         result = { 'original': url, 'shortened': url_for('lookup', id = id) }
         return jsonify(result)
     except Exception as e :
-        report = { 'original': url, 'message': str(e) }
+        report = { 'message': str(e) }
         return jsonify(report)
 
 if __name__ == '__main__' :
