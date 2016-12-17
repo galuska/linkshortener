@@ -33,9 +33,12 @@ def lookup(id) :
     conn = connect_db()
     cur = conn.cursor()
     cur.execute('''SELECT url FROM links WHERE id = ?''', (id, ))
-    url = cur.fetchone()[0]
+    url = cur.fetchone()
     conn.close()
-    return redirect(url)
+    if url == None :
+        return abort(404)
+    else :
+        return redirect(url[0])
 
 @http.route('/shorten')
 def shorten() :
