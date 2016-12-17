@@ -52,8 +52,9 @@ def shorten() :
         conn.close()
         result = { 'original': url, 'shortened': url_for('lookup', id = id) }
         return jsonify(result)
-    except :
-        return abort(400)
+    except Exception as e :
+        report = { 'original': url, 'message': str(e) }
+        return jsonify(report)
 
 if __name__ == '__main__' :
     http.run()
