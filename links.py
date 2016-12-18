@@ -62,4 +62,4 @@ def shorten() :
         return jsonify(report)
 
 if __name__ == '__main__' :
-    http.run()
+    http.run(host='0.0.0.0', port=http_port)
